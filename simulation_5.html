@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css" rel="stylesheet">
+    <link href="css/toolbar.css" rel="stylesheet">
+    
+    <title>Connected Chemistry -  Mixtures</title>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <div class="row toolbar">
+        <div class="column">
+          <a href="#" class="btn btn-success btn-lg">
+            <span class="fa fa-home"></span> 
+          </a>
+        </div>
+        <div class="column">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Simulations
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu col-xs-12">
+              <li><a href="simulation_1.html">Sim1:Making scientific observations with a Model </a></li>
+              <li><a href="simulation_2.html">Sim2:Classifying Matter </a></li>
+              <li><a href="simulation_3.html">Sim3:Physical changes </a></li>
+              <li><a href="simulation_4.html">Sim4:Chemical changes </a></li>
+              <li><a href="simulation_5.html">Sim5:Mixtures </a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Set
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu col-xs-12">
+              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMoleculeSim5(1)">Set 1</button></li>
+              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMoleculeSim5(2)">Set 2</button></li>
+              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMoleculeSim5(3)">Set 3</button></li>
+              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMoleculeSim5(4)">Set 4</button></li>
+              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMoleculeSim5(5)">Set 5</button></li>
+              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMoleculeSim5(6)">Set 6</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Substance
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu col-xs-12 dropdown-menu-substance">
+              <li>
+                <img id="molimg" src="assets/HydrogenPeroxide.png"><h5 id="molname" style="display:inline">HydrogenPeroxide</h5>
+                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel()"/>
+                <span class="badge badge-primary slider-val" id="moleculeval">2 </span>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn()">
+                    <span class="fa fa-plus"></span>
+                   </button>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="start()">
+              <span class="fa fa-play"></span>
+            </button>
+            <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="pause()">
+              <span class="fa fa-pause"></span>
+            </button>
+            <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="setup()">
+              <span class="fa fa-repeat"></span>
+            </button>
+          </div>
+        </div>
+        <div class="column">
+          <div> 
+            <button class="btn btn-primary btn-hide" type="button">Hide Water Molecules</button>
+          </div>
+          <div align="center">
+            <span class="badge badge-primary timerdiv" id="timer">0 : 00 : 00 </span>
+          </div>
+        </div>
+        <div class="column column-slider">
+          <div class="personalslider">
+            <span class="badge badge-primary slider-name">Speed </span>
+            <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="1" data-toggle-slider-selection="before" data-slider-tooltip="hide" data-value="1" value="1" onchange="setSpeedSliderVal()"/>
+            <span class="badge badge-primary slider-val" id="speedValue">1 </span>
+          </div>
+          <div class="personalslider">
+            <span class="badge badge-primary slider-name">Volume</span>
+            <input id="ex3" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="500" data-slider-step="1" data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide" data-value="0" value="0" onchange="setVolumeSliderVal()"/>
+            <span class="badge badge-primary slider-val" id="volumeValue">0 </span>
+          </div>
+          <div class="personalslider">
+            <span class="badge badge-primary slider-name" id="heat">Heat  </span>
+            <input id="ex4" data-slider-id='ex1Slider' type="text" data-slider-min="-5" data-slider-max="5" data-slider-step="1" data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide" data-value="5" value="5" onchange="setHeatSliderVal()"/>
+            <span class="badge badge-primary slider-val" id="heatValue" >0</span>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row drawing-area">
+        <div class="column column-data">
+            <canvas id="lineChart" height="270px" width="350px"></canvas>
+            <span class="badge badge-primary label-temp">Temperature C</span>
+            <span class="badge badge-primary" id="tempval">25</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/ext/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="js/ext/matter.js"></script>
+    <script language="javascript" type="text/javascript" src="js/ext/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="js/ext/TotakKE.js"></script>
+    <script language="javascript" type="text/javascript" src="js/charts.js"></script>
+    <script language="javascript" type="text/javascript" src="js/database.js"></script>
+    <script language="javascript" type="text/javascript" src="js/sketch.js"></script>
+    <script type="text/javascript">
+      var sliderAddMolecule = new Slider('#ex1', {
+        formatter: function(value) {
+        return 'Current value: ' + value;
+        }
+      });
+      var sliderSpeed = new Slider('#ex2', {
+        formatter: function(value) {
+        return 'Current value: ' + value;
+        }
+      });
+      var sliderVolume = new Slider('#ex3', {
+        formatter: function(value) {
+        return 'Current value: ' + value;
+        }
+      });
+      var sliderHeat = new Slider('#ex4', {
+        formatter: function(value) {
+        return 'Current value: ' + value;
+        }
+      });
+    </script>
+  </body>
+</html>

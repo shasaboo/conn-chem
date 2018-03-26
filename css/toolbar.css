@@ -1,0 +1,77 @@
+.toolbar{
+  background-color: #f1f1f1;
+  height: 15vh;
+  padding: 5px 5px 5px 5px;
+}
+.fa-home{
+  font-size: 63px
+}
+.column{
+  padding: 5px 5px 5px 5px;
+}
+.dropdown-menu-substance{
+  width: 650px;
+}
+.dropdown-toggle{
+  width: 250px;
+}
+.dropdown{
+  margin-bottom: 5px;
+}
+#ex1Slider .slider-selection {
+  background: #BABABA;
+}
+.btn-number{
+  background-color: #218838;
+  color: #fff;
+  border-color: #1e7e34;
+}
+.badge-primary {
+  width: 70px;
+}
+.btn-play-pause-reset {
+  width: 84px;
+}
+.column-slider{
+  float: right;
+}
+.drawing-area{
+  height: 85vh;
+}
+.column-data{
+  width: 30vd;
+  margin-left: 15px;
+}
+.column-canvas{
+  width: 70vd;
+}
+.personalslider{
+  padding: 0px;
+}
+.btn-hide{
+  width: 250px;
+}
+.slider-val{
+  margin-left: 9px;
+}
+.slider-name{
+  margin-right: 9px;
+}
+.timerdiv{
+  width: 150px;
+  height: 38px;
+}
+.speed-btn{
+  height: 20px;
+  width: 10px;
+}
+.select-set{
+  margin: 10px 10px 10px 10px;
+}
+.btn-set{
+  width: 232px;
+}
+.label-temp{
+  width: 110px;
+  margin-left: 75px;
+}

@@ -14,7 +14,7 @@ var totalRows;
 
 //Simulation Titles
 var pageTitle=document.title;
-var sim1="";
+var sim1="Connected Chemistry - Scientific Observations";
 var sim2="Connected Chemistry - Classifying Matter";
 var sim3="Connected Chemistry - Physical Changes";
 var sim4="Connected Chemistry - Chemical changes";
@@ -80,8 +80,8 @@ function setMolecule(ID) {
         img1 = loadImage('assets/Water.png');
         img2 = loadImage('assets/Oxygen.png');
         document.getElementById("molimg").src="assets/HydrogenPeroxide.png";
-        document.getElementById("molname").innerHTML="HydrogenPeroxide";
-        window.myLine.data.datasets[0].label="HydrogenPeroxide";
+        document.getElementById("molname").innerHTML="Hydrogen Peroxide";
+        window.myLine.data.datasets[0].label="Hydrogen Peroxide";
         setFreezingBoilingPoint("Hydrogen-Peroxide","compounds");
         moleculenum=20;
     } else if (ID == 3) {
@@ -115,8 +115,8 @@ function setMolecule(ID) {
     } else if (ID == 7) {
         img = loadImage('assets/SiliconDioxide.png');
         document.getElementById("molimg").src="assets/SiliconDioxide.png";
-        document.getElementById("molname").innerHTML="SiliconDioxide";
-        window.myLine.data.datasets[0].label="SiliconDioxide";
+        document.getElementById("molname").innerHTML="Silicon Dioxide";
+        window.myLine.data.datasets[0].label="Silicon Dioxide";
         setFreezingBoilingPoint("Silicon-Dioxide","compounds");
         moleculenum=20;
     }
@@ -131,55 +131,75 @@ function setMoleculeSim5(ID){
         img = loadImage('assets/Water.png');
         img1 = loadImage('assets/Bromine.png');
         document.getElementById("molimg").src="assets/Water.png";
+        document.getElementById("molimg1").src="assets/Bromine.png";
         document.getElementById("molname").innerHTML="Water";
+        document.getElementById("molname1").innerHTML="Bromine";
         window.myLine.data.datasets[0].label="Water";
         moleculenum=40;
         moleculenum1=12;
         molname="Water";
         molname1="Bromine";
-        if(window.myLine.data.datasets.length==3)
+        if(window.myLine.data.datasets.length==3){
+            document.getElementById("molSlider2").style.display = "none";
+            document.getElementById("hr2").style.display = "none";
             removeDataset();
+        }
     } else if (ID == 2) {
         img = loadImage('assets/Water.png');
         img1 = loadImage('assets/Mercury.png');
         document.getElementById("molimg").src="assets/Water.png";
         document.getElementById("molname").innerHTML="Water";
+        document.getElementById("molimg1").src="assets/Mercury.png";
+        document.getElementById("molname1").innerHTML="Mercury";
         window.myLine.data.datasets[0].label="Water";
         window.myLine.data.datasets[1].label="Mercury";
-        moleculenum=28;
+        moleculenum=40;
         moleculenum1=20;
         molname="Water";
         molname1="Mercury";
-        if(window.myLine.data.datasets.length==3)
+        if(window.myLine.data.datasets.length==3){
+            document.getElementById("molSlider2").style.display = "none";
+            document.getElementById("hr2").style.display = "none";
             removeDataset();
+        }
        
     } else if (ID == 3) {
         img = loadImage('assets/Water.png');
         img1 = loadImage('assets/HydrogenPeroxide.png');
         document.getElementById("molimg").src="assets/Water.png";
         document.getElementById("molname").innerHTML="Water";
+        document.getElementById("molimg1").src="assets/HydrogenPeroxide.png";
+        document.getElementById("molname1").innerHTML="Hydrogen Peroxide";
         window.myLine.data.datasets[0].label="Water";
-        window.myLine.data.datasets[1].label="HydrogenPeroxide";
+        window.myLine.data.datasets[1].label="Hydrogen Peroxide";
         moleculenum=28;
         moleculenum1=20;
         molname="Water";
         molname1="Hydrogen-Peroxide";
-        if(window.myLine.data.datasets.length==3)
+        if(window.myLine.data.datasets.length==3){
+            document.getElementById("molSlider2").style.display = "none";
+            document.getElementById("hr2").style.display = "none";
             removeDataset();
+        }
         
     } else if (ID == 4) {
         img = loadImage('assets/Water.png');
         img1 = loadImage('assets/Pentane.png');
         document.getElementById("molimg").src="assets/Water.png";
         document.getElementById("molname").innerHTML="Water";
+        document.getElementById("molimg1").src="assets/Pentane.png";
+        document.getElementById("molname1").innerHTML="Pentane";
         window.myLine.data.datasets[0].label="Water";
         window.myLine.data.datasets[1].label="Pentane";
         moleculenum=40;
-        moleculenum1=6;
+        moleculenum1=8;
         molname="Water";
         molname1="Pentane";
-        if(window.myLine.data.datasets.length==3)
+        if(window.myLine.data.datasets.length==3){
+            document.getElementById("molSlider2").style.display = "none";
+            document.getElementById("hr2").style.display = "none";
             removeDataset();
+        }
         
     } else if (ID == 5) {
         img = loadImage('assets/Water.png');
@@ -187,6 +207,10 @@ function setMoleculeSim5(ID){
         img2 = loadImage('assets/HydrogenPeroxide.png');
         document.getElementById("molimg").src="assets/Water.png";
         document.getElementById("molname").innerHTML="Water";
+        document.getElementById("molimg1").src="assets/Bromine.png";
+        document.getElementById("molname1").innerHTML="Bromine";
+        document.getElementById("molimg2").src="assets/HydrogenPeroxide.png";
+        document.getElementById("molname2").innerHTML="Hydrogen Peroxide";
         window.myLine.data.datasets[0].label="Water";
         window.myLine.data.datasets[1].label="Bromine";
         moleculenum=28;
@@ -195,10 +219,12 @@ function setMoleculeSim5(ID){
         molname="Water";
         molname1="Bromine";
         molname2="Hydrogen-Peroxide";
+        document.getElementById("molSlider2").style.display = "block";
+        document.getElementById("hr2").style.display = "block";
         if(window.myLine.data.datasets.length==3)
-            window.myLine.data.datasets[2].label="HydrogenPeroxide";
+            window.myLine.data.datasets[2].label="Hydrogen Peroxide";
         else
-            addDataset("HydrogenPeroxide")
+            addDataset("Hydrogen Peroxide")
         
     } else if (ID == 6) {
         img = loadImage('assets/Water.png');
@@ -206,6 +232,10 @@ function setMoleculeSim5(ID){
         img2 = loadImage('assets/Bromine.png');
         document.getElementById("molimg").src="assets/Water.png";
         document.getElementById("molname").innerHTML="Water";
+        document.getElementById("molimg1").src="assets/Pentane.png";
+        document.getElementById("molname1").innerHTML="Pentane";
+        document.getElementById("molimg2").src="assets/Bromine.png";
+        document.getElementById("molname2").innerHTML="Bromine";
         window.myLine.data.datasets[0].label="Water";
         window.myLine.data.datasets[1].label="Pentane";
         moleculenum=28;
@@ -214,6 +244,8 @@ function setMoleculeSim5(ID){
         molname="Water";
         molname1="Pentane";
         molname2="Bromine";
+        document.getElementById("molSlider2").style.display = "block";
+        document.getElementById("hr2").style.display = "block";
         if(window.myLine.data.datasets.length==3)
             window.myLine.data.datasets[2].label="Bromine";
         else
@@ -244,8 +276,8 @@ function setFreezingBoilingPoint(name,type){
         {
             if(elements[i].name == name)
             {
-                freezingPoint=elements[i].freezingPointKelvin;
-                boilingPoint=elements[i].boilingPointKelvin;
+                freezingPoint=elements[i].freezingPointKelvin-273;
+                boilingPoint=elements[i].boilingPointKelvin-273;
                 radius=elements[i].radius;
                 break;
             }
@@ -284,10 +316,10 @@ function getRadius(name,type){
 function preload(){
 
     img = loadImage('assets/Water.png');
+    pistonImg = loadImage('assets/base.png');
     molID = 1;
-    console.log(pageTitle);
-    console.log(sim5);
     setFreezingBoilingPoint("Water","compounds");
+    sliderVolume.disable();
     if(pageTitle==sim2){
         sliderHeat.disable();
     }
@@ -299,8 +331,8 @@ function preload(){
         img1 = loadImage('assets/Water.png');
         img2 = loadImage('assets/Oxygen.png');
         document.getElementById("molimg").src="assets/HydrogenPeroxide.png";
-        document.getElementById("molname").innerHTML="HydrogenPeroxide";
-        window.myLine.data.datasets[0].label="HydrogenPeroxide";
+        document.getElementById("molname").innerHTML="Hydrogen Peroxide";
+        window.myLine.data.datasets[0].label="Hydrogen Peroxide";
         setFreezingBoilingPoint("Hydrogen-Peroxide","compounds");
         moleculenum=20;
         addDataset("Water");
@@ -311,13 +343,17 @@ function preload(){
         img = loadImage('assets/Water.png');
         img1 = loadImage('assets/Bromine.png');
         document.getElementById("molimg").src="assets/Water.png";
+        document.getElementById("molimg1").src="assets/Bromine.png";
         document.getElementById("molname").innerHTML="Water";
+        document.getElementById("molname1").innerHTML="Bromine";
         window.myLine.data.datasets[0].label="Water";
         moleculenum=40;
         moleculenum1=12;
         molname="Water";
         molname1="Bromine";
         addDataset("Bromine");
+        document.getElementById("molSlider2").style.display = "none";
+        document.getElementById("hr2").style.display = "none";
     }
 }
 
@@ -364,6 +400,19 @@ function setup() {
     //slider
     document.getElementById("heatValue").innerHTML=0;
     sliderHeat.setValue(0);
+    document.getElementById("volumeValue").innerHTML=0;
+    sliderVolume.setValue(0);
+    document.getElementById("speedValue").innerHTML=1;
+    sliderSpeed.setValue(1);
+    document.getElementById("moleculeval").innerHTML=2;
+    sliderAddMolecule.setValue(2);
+
+    if(pageTitle==sim5){
+        document.getElementById("moleculeval1").innerHTML=2;
+        sliderAddMolecule1.setValue(2);        
+        document.getElementById("moleculeval2").innerHTML=2;
+        sliderAddMolecule2.setValue(2);
+    }
 
     //timer
     totalSeconds=0;
@@ -406,8 +455,8 @@ function setup() {
         addMolecules(moleculenum1,2);
         if(window.myLine.data.datasets.length==3){
             getRadius(molname2,"compounds");
-            x=600;
-            y=30;
+            x=430;
+            y=175;
             addMolecules(moleculenum2,3);
         } 
     }
@@ -438,28 +487,30 @@ function draw() {
     val = document.getElementById("heatValue").innerHTML;
     var intValtemp = currRoomTemp;
 
-    for (var i = 0; i < bodies.length; i++) {
-        for (var j = 0; j < bodies.length; j++) {
-           if (i != j) {
-                test = intersects(bodynumber[i], bodynumber[j]);
-                randomnum = Math.floor((Math.random() * 100) + 1);
-                if (test == true) //that means collision occured
-               {
-                    if (intValtemp > boilingPoint && randomnum > 80) //randommnum is probability of conversion
-                    {
-                        if(bodyType[i]==1 && bodyType[j]==1 && pageTitle==sim4){
-                            //Change one to Water and other to Oxygen 
-                            bodyType[i] = 2;
-                            bodyType[j] = 3;
-                            //create a new Water Molecule
-                            addWater(j);
-                            //Set their positions
-                            bodyPositionX[i] = bodies[j].position.x;
-                            bodyPositionY[i] = bodies[j].position.y; 
-                            //Increment the count of molecules
-                            totalMolecules1+=2;
-                            totalMolecules2++;
-                            totalMolecules-=2;
+    if(pageTitle==sim4){
+        for (var i = 0; i < bodies.length; i++) {
+            for (var j = 0; j < bodies.length; j++) {
+               if (i != j) {
+                    test = intersects(bodynumber[i], bodynumber[j]);
+                    randomnum = Math.floor((Math.random() * 100) + 1);
+                    if (test == true) //that means collision occured
+                   {
+                        if (intValtemp > 110 && randomnum > 75) //randommnum is probability of conversion
+                        {
+                            if(bodyType[i]==1 && bodyType[j]==1 && pageTitle==sim4){
+                                //Change one to Water and other to Oxygen 
+                                bodyType[i] = 2;
+                                bodyType[j] = 3;
+                                //create a new Water Molecule
+                                addWater(j);
+                                //Set their positions
+                                bodyPositionX[i] = bodies[j].position.x;
+                                bodyPositionY[i] = bodies[j].position.y; 
+                                //Increment the count of molecules
+                                totalMolecules1+=2;
+                                totalMolecules2++;
+                                totalMolecules-=2;
+                            }
                         }
                     }
                 }
@@ -473,10 +524,20 @@ function draw() {
         world.gravity.y = 0;
     } else if (intValtemp < freezingPoint) {
         world.gravity.y = 0.3;
-        applyforce(0.005);
+        applyforce(0.0005);
     } else if (intValtemp < boilingPoint) {
         world.gravity.y = 0.3;
         applyforce(0.00005);
+        //Sim5 Set1
+        // applyforceID(0.00005,1);
+        // applyforceID(0.00005,2);
+        // applyforce(0.00003);
+    }
+
+    //|| molname1=="Pentane"
+    if(pageTitle==sim5 && (molname1=="Mercury")){
+            applyforceID(0.005,2);
+            applyforce(0.00005);
     }
 
     //Applying attrcative forces between all molecules
@@ -494,6 +555,24 @@ function draw() {
                     Matter.Body.applyForce(bodynumber[j], p2vector, diffvector);
                 }
             }
+        }
+    }
+    function applyforceID(mag, ID) {
+        for (var i = 0; i < bodies.length; i++) {
+            for (var j = 0; j < bodies.length; j++) {
+                if(bodyType[i]==ID && bodyType[j]==ID){
+                    var pvector = createVector((bodynumber[i].position.x), (bodynumber[i].position.y));
+                    var p2vector = createVector((bodynumber[j].position.x), (bodynumber[j].position.y));
+                    var distforce = dist(bodynumber[i].position.x, bodynumber[i].position.y, bodynumber[j].position.x, bodynumber[j].position.y);
+                    var diffvector = p5.Vector.sub(pvector, p2vector);
+                    diffvector.normalize();
+                    diffvector.mult(mag);
+                    //line(diffvector);
+                    if (distforce > 40) {
+                        Matter.Body.applyForce(bodynumber[j], p2vector, diffvector);
+                    }
+                }
+            }   
         }
     }
     for (i = 0; i < bodies.length; i++) {
@@ -643,8 +722,11 @@ function piston(){
     World.add(world, p);
 
     //piston wall
-    fill(108, 108, 108);
+    fill(70, 70, 70);
+    stroke(70);
+    strokeWeight(0.025*height);
     rect(0, 0+Number(h), width, 0.025*height);
+    image(pistonImg, width/2, 0+Number(h),width-40, 30);
 }
 
 function drawcircle() {
@@ -682,9 +764,25 @@ function setVolumeSliderVal(){
 function setAddMoleculeLabel(){
     document.getElementById("moleculeval").innerHTML=document.getElementById("ex1").value;
 }
+function setAddMoleculeLabel1(){
+    document.getElementById("moleculeval1").innerHTML=document.getElementById("ex5").value;
+}
+function setAddMoleculeLabel2(){
+    document.getElementById("moleculeval2").innerHTML=document.getElementById("ex6").value;
+}
 
 function addMoleculesBtn(){
+    x=320;
+    y=30;
     addMolecules(document.getElementById("moleculeval").innerHTML,molID);
+}
+function addMoleculesBtn1(ID){
+    x=320;
+    y=30;
+    if(ID==2)
+        addMolecules(document.getElementById("moleculeval1").innerHTML,ID);
+    else
+        addMolecules(document.getElementById("moleculeval2").innerHTML,ID);
 }
 
 function setrowcolumn(number){
@@ -710,8 +808,8 @@ function setrowcolumn(number){
         column=5;
     }
     if (number<=10) {
-        column=number/2;
-        row=number/column;
+        row=number/2;
+        column=number/row;
     }
 
 }
@@ -731,6 +829,19 @@ function makeCircle(x, y) {
 function addMolecules(number,ID){
 
     setrowcolumn(number);
+
+    if(pageTitle==sim5){
+        if(ID==1)
+            getRadius(molname,"compounds");
+        else if(ID==2){
+            if(molname1=="Mercury")
+                getRadius(molname1,"elements");
+            else
+                getRadius(molname1,"compounds");
+        }
+        else if(window.myLine.data.datasets.length==3)
+            getRadius(molname2,"compounds");
+    }
 
     // x, y, columns, rows, column gap, row gap
     stack[stackCounter] = Composites.stack(x, y, row, column, 0, 0, makeCircle);
@@ -770,7 +881,7 @@ function addWater(j){
     World.add(world, stack[stackCounter]);
     bodies[bodies.length] = stack[stackCounter].bodies[0];
     bodynumber[bodynumber.length] = stack[stackCounter].bodies[0];
-    bodyType[bodyType.length] = 10;
+    bodyType[bodyType.length] = 2;
     stackCounter++;
 }
 
@@ -780,6 +891,7 @@ function start(){
         bodynumber[i].isSleeping = false;
     }
     timerVar = setInterval(countTimer, 1000);
+    sliderVolume.enable();
 }
 //pause the simulation
 function pause(){
@@ -787,6 +899,7 @@ function pause(){
         bodynumber[i].isSleeping = true;
     }
     clearInterval(timerVar);
+    sliderVolume.disable();
 }
 
 //Timer

@@ -26,7 +26,7 @@
           <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Simulations
             <span class="caret"></span></button>
-            <ul class="dropdown-menu col-xs-12">
+            <ul class="dropdown-menu col-xs-12 sim">
               <li><a href="simulation_1.html">Sim1:Making scientific observations with a Model </a></li>
               <li><a href="simulation_2.html">Sim2:Classifying Matter </a></li>
               <li><a href="simulation_3.html">Sim3:Physical changes </a></li>
@@ -58,6 +58,28 @@
                 <span class="badge badge-primary slider-val" id="moleculeval">2 </span>
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn()">
+                    <span class="fa fa-plus"></span>
+                   </button>
+                </span>
+              </li>
+              <hr>
+              <li>
+                <img id="molimg1" src="assets/HydrogenPeroxide.png"><h5 id="molname1" style="display:inline">HydrogenPeroxide</h5>
+                <input id="ex5" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel1()"/>
+                <span class="badge badge-primary slider-val" id="moleculeval1">2 </span>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn1(2)">
+                    <span class="fa fa-plus"></span>
+                   </button>
+                </span>
+              </li>
+              <hr id="hr2">
+              <li id="molSlider2">
+                <img id="molimg2" src="assets/HydrogenPeroxide.png"><h5 id="molname2" style="display:inline">HydrogenPeroxide</h5>
+                <input id="ex6" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel2()"/>
+                <span class="badge badge-primary slider-val" id="moleculeval2">2 </span>
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn1(3)">
                     <span class="fa fa-plus"></span>
                    </button>
                 </span>
@@ -128,6 +150,16 @@
     <script language="javascript" type="text/javascript" src="js/sketch.js"></script>
     <script type="text/javascript">
       var sliderAddMolecule = new Slider('#ex1', {
+        formatter: function(value) {
+        return 'Current value: ' + value;
+        }
+      });
+      var sliderAddMolecule1 = new Slider('#ex5', {
+        formatter: function(value) {
+        return 'Current value: ' + value;
+        }
+      });
+      var sliderAddMolecule2 = new Slider('#ex6', {
         formatter: function(value) {
         return 'Current value: ' + value;
         }

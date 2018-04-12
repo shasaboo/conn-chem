@@ -21,8 +21,25 @@ var config = {
         }]
     },
     options: {
-        responsive: true
-    }   
+        responsive: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,   // minimum value will be 0.
+                },
+                scaleLabel: {
+                    display: true,
+                    labelString: 'No. of Molecules'
+                }
+            }],
+            xAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Time (hh:mm:ss)'
+                }
+            }]
+        }   
+    }
 };
 
 //line Graph

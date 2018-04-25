@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css" rel="stylesheet">
-    <link href="css/toolbar.css" rel="stylesheet">
-    
-    <title>Connected Chemistry - Chemical changes</title>
+    <link href="../../css/toolbar.css" rel="stylesheet">
+
+    <title>Connected Chemistry - Scientific Observations</title>
   </head>
   <body>
 
@@ -38,7 +38,7 @@
             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Set
             <span class="caret"></span></button>
             <ul class="dropdown-menu col-xs-12">
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(2)">Set 1</button></li>
+              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(1)">Set 1</button></li>
             </ul>
           </div>
         </div>
@@ -48,7 +48,7 @@
             <span class="caret"></span></button>
             <ul class="dropdown-menu col-xs-12 dropdown-menu-substance">
               <li>
-                <img id="molimg" src="assets/HydrogenPeroxide.png"><h5 id="molname" style="display:inline">HydrogenPeroxide</h5>
+                <img id="molimg" src="../../assets/Water.png"><h5 id="molname" style="display:inline">Water</h5>
                 <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel()"/>
                 <span class="badge badge-primary slider-val" id="moleculeval">2 </span>
                 <span class="input-group-btn">
@@ -114,13 +114,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/bootstrap-slider.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-    <script language="javascript" type="text/javascript" src="js/ext/p5.js"></script>
-    <script language="javascript" type="text/javascript" src="js/ext/matter.js"></script>
-    <script language="javascript" type="text/javascript" src="js/ext/p5.dom.js"></script>
-    <script language="javascript" type="text/javascript" src="js/ext/TotakKE.js"></script>
-    <script language="javascript" type="text/javascript" src="js/charts.js"></script>
-    <script language="javascript" type="text/javascript" src="js/database.js"></script>
-    <script language="javascript" type="text/javascript" src="js/sketch.js"></script>
+    <script language="javascript" type="text/javascript" src="../../js/ext/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="../../js/ext/matter.js"></script>
+    <script language="javascript" type="text/javascript" src="../../js/ext/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="../../js/ext/TotakKE.js"></script>
+    <script language="javascript" type="text/javascript" src="../../js/charts.js"></script>
+    <script language="javascript" type="text/javascript" src="../../js/database.js"></script>
+    <script language="javascript" type="text/javascript" src="../../js/unit_1_sketch.js"></script>
     <script type="text/javascript">
       var sliderAddMolecule = new Slider('#ex1', {
         formatter: function(value) {

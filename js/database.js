@@ -4233,7 +4233,8 @@ compounds : [
    "freezingPointCelsius": -78,
    "unit": "3 4",
    "fakeScale": 1,
-   "mass": 44
+   "mass": 44,
+   "radius": 27
  },
  {
    "name": "Ammonia",
@@ -4690,7 +4691,8 @@ compounds : [
    "freezingPointCelsius": -101.5,
    "unit": "3",
    "fakeScale": 1,
-   "mass": 70.9
+   "mass": 70.9,
+   "radius": 29
  },
  {
    "name": "Chlorine-Atom",
@@ -4885,7 +4887,8 @@ compounds : [
    "freezingPointCelsius": -169.2,
    "unit": "3",
    "fakeScale": 1,
-   "mass": 28
+   "mass": 28,
+   "radius": 28
  },
  {
    "name": "Fluoride",
@@ -5119,7 +5122,8 @@ compounds : [
    "freezingPointCelsius": -51,
    "unit": "3",
    "fakeScale": 1,
-   "mass": 127.9
+   "mass": 127.9,
+   "radius": 28
  },
  {
    "name": "Hydrogen-Ion",
@@ -5496,7 +5500,8 @@ compounds : [
    "freezingPointCelsius": -182.5,
    "unit": "3",
    "fakeScale": 1,
-   "mass": null
+   "mass": null,
+   "radius": 25
  },
  {
    "name": "Methylamine",
@@ -5626,7 +5631,8 @@ compounds : [
    "freezingPointCelsius": -218.79,
    "unit": "3 4",
    "fakeScale": 1,
-   "mass": 32
+   "mass": 32,
+   "radius": 10
  },
  {
    "name": "Oxygen-Atom",
@@ -5967,7 +5973,8 @@ compounds : [
    "freezingPointCelsius": 97.72,
    "unit": "3",
    "fakeScale": 1,
-   "mass": 22.99
+   "mass": 22.99,
+   "radius": 23
  },
  {
    "name": "Sodium-Acetate",
@@ -6019,7 +6026,8 @@ compounds : [
    "freezingPointCelsius": 801,
    "unit": "2 3 8",
    "fakeScale": 1,
-   "mass": 58.44
+   "mass": 58.44,
+   "radius": 40
  },
  {
    "name": "Sodium-Hydroxide",

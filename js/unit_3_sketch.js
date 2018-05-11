@@ -20,8 +20,6 @@ var sim2="";
 
 //store propeties of bodies
 var bodynumber = [];
-var bodyPositionX = [];
-var bodyPositionY = [];
 var bodyType = [];
 var minTemp = -20;
 var bodycolgrnd = [];
@@ -68,7 +66,7 @@ var mass=18.02;
 var mass1=159.808;
 var mass2=72.15;
 var img;
-var setNum=1;
+var setNumber=1;
 var radiusArr = [];
 
 function getRadius(name,type){
@@ -101,7 +99,8 @@ function getRadius(name,type){
 function setMolecule(ID) {
 
     if(ID==1){
-        setNum=1;
+        setNumber=1;
+        document.getElementById("selectset").innerHTML="Set 1";
         img = loadImage("../../assets/Chlorine.png");
         img1 = loadImage("../../assets/Sodium.png");
         img2 = loadImage("../../assets/Sodium-Chloride.png");
@@ -123,7 +122,8 @@ function setMolecule(ID) {
         }
     }
     else if(ID==2){
-        setNum=2;
+        setNumber=2;
+        document.getElementById("selectset").innerHTML="Set 2";
         img = loadImage("../../assets/Hydrogen-Iodide.png");
         img1 = loadImage("../../assets/Hydrogen.png");
         img2 = loadImage("../../assets/Iodine.png");
@@ -143,7 +143,8 @@ function setMolecule(ID) {
         }
     }
     else if(ID==3){
-        setNum=3;
+        setNumber=3;
+        document.getElementById("selectset").innerHTML="Set 3";
         img = loadImage("../../assets/Ethene.png");
         img1 = loadImage("../../assets/Oxygen.png");
         img2 = loadImage("../../assets/Carbon-Dioxide.png");
@@ -167,8 +168,21 @@ function setMolecule(ID) {
         else
             addDataset("Water");
     }
+    else if(ID==4){
+        setNumber=4;
+        document.getElementById("selectset").innerHTML="Set 4";
+        img = loadImage("../../assets/Copper.png");
+        img1 = loadImage("../../assets/Silver-Ion.png");
+        img2 = loadImage("../../assets/Nitrate.png");
+        img3 = loadImage("../../assets/Water.png");
+        radiusArr[0] = getRadius("Copper","compounds");
+        radiusArr[1] = getRadius("Silver-Ion","compounds");
+        radiusArr[2] = getRadius("Nitrate","compounds");
+        radiusArr[3] = getRadius("Water","compounds");
+    }
     else if(ID==5){
-        setNum=5;
+        setNumber=5;
+        document.getElementById("selectset").innerHTML="Set 5";
         img = loadImage("../../assets/Methane.png");
         img1 = loadImage("../../assets/Oxygen.png");
         img2 = loadImage("../../assets/Carbon-Dioxide.png");
@@ -177,6 +191,7 @@ function setMolecule(ID) {
         radiusArr[1] = getRadius("Oxygen","compounds");
         radiusArr[2] = getRadius("Carbon-Dioxide","compounds");
         radiusArr[3] = getRadius("Water","compounds");
+        fixedDistance=radiusArr[0]+radiusArr[1];
         document.getElementById("molimg").src="../../assets/Methane.png";
         document.getElementById("molimg1").src="../../assets/Oxygen.png";
         document.getElementById("molname").innerHTML="Methane";
@@ -187,15 +202,20 @@ function setMolecule(ID) {
         window.myLine.data.datasets[1].label="Oxygen";
         window.myLine.data.datasets[2].label="Carbon-Dioxide";
         if(window.myLine.data.datasets.length==4)
-            window.myLine.data.datasets[2].label="Water";
+            window.myLine.data.datasets[3].label="Water";
         else
             addDataset("Water");
     }
     else if(ID==8){
-        setNum=8;
+        setNumber=8;
+        document.getElementById("selectset").innerHTML="Set 8";
         img = loadImage("../../assets/Chlorine.png");
         img1 = loadImage("../../assets/Hydrogen.png");
         img2 = loadImage("../../assets/Hydrochloric-Acid.png");
+        radiusArr[0] = getRadius("Chlorine","compounds");
+        radiusArr[1] = getRadius("Hydrogen","compounds");
+        radiusArr[2] = getRadius("Hydrochloric-Acid","compounds");
+        fixedDistance=radiusArr[0]+radiusArr[1];
         document.getElementById("molimg").src="../../assets/Chlorine.png";
         document.getElementById("molimg1").src="../../assets/Hydrogen.png";
         document.getElementById("molname").innerHTML="Chlorine";
@@ -208,10 +228,13 @@ function setMolecule(ID) {
         }
     }
     else if(ID==9){
-        setNum=9;
+        setNumber=9;
+        document.getElementById("selectset").innerHTML="Set 9";
         img = loadImage("../../assets/HydrogenPeroxide.png");
         img1 = loadImage("../../assets/Water.png");
         img2 = loadImage("../../assets/Oxygen.png");
+        radiusArr[0] = getRadius("Hydrogen-Peroxide","compounds");
+        fixedDistance=radiusArr[0]+radiusArr[0];
         document.getElementById("molimg").src="../../assets/HydrogenPeroxide.png";
         document.getElementById("molname").innerHTML="Hydrogen Peroxide";
         document.getElementById("molSlider1").style.display = "block";
@@ -237,7 +260,6 @@ function preload(){
     radiusArr[1] = getRadius("Chlorine","compounds");
     radiusArr[2] = getRadius("Sodium-Chloride","compounds");
     fixedDistance=radiusArr[0]+radiusArr[1];
-    console.log(radiusArr);
     document.getElementById("molimg").src="../../assets/Chlorine.png";
     document.getElementById("molimg1").src="../../assets/Sodium.png";
     document.getElementById("molname").innerHTML="Chlorine";
@@ -245,12 +267,12 @@ function preload(){
     window.myLine.data.datasets[0].label="Chlorine";
     addDataset("Sodium");
     addDataset("Sodium Chloride");
-
+    document.getElementById("selectset").innerHTML="Set 1";
 }
 
 function setup() {
 
-    imageMode(CENTER);
+    //imageMode(CENTER);
     frameRate(15);
 
     //Reset stack counter
@@ -278,14 +300,14 @@ function setup() {
     }
 
     var params = {
-        isStatic: true
+        isStatic: true,
+        restitution: 1.0
     }
     var ground = Bodies.rectangle(width / 2, height, width, 0.04*height*2, params1);
     var wall1 = Bodies.rectangle(0, height / 2, 0.016*width*2, height, params);
     var wall2 = Bodies.rectangle(width, height / 2, 0.016*width*2, height, params);
     var top = Bodies.rectangle(width / 2, 0, width, 0.025*height*2, params);
-    p = Bodies.rectangle(width / 2, 0, width, 0.025*height*2, params);
-    World.add(world, [ground, wall1, wall2, top, p]);
+    World.add(world, [ground, wall1, wall2, top]);
 
     //RESET
     //slider
@@ -328,9 +350,9 @@ function setup() {
     totalMolecules2=0;
     totalMolecules3=0;
 
-    if(setNum==1){
+    if(setNumber==1){
         x=80;
-        y=480;
+        y=height-140;
         xgap=65;
         ygap=10;
 
@@ -338,74 +360,97 @@ function setup() {
         radius=radiusArr[0];
         addMolecules(7,2);
         x=130;
-        y=515;
+        y=height-105;
         addMolecules(7,2);  
-
         //Chlorine  
         radius=radiusArr[1];
         addScatteredMolecules(12,1);
 
-
+        for (var i = 0; i < bodies.length; i++) {
+            if (bodyType[i]==2) {
+                bodynumber[i].isStatic = true;
+                bodies[i].isStatic = true;
+            }   
+        }
     }
-    else if(setNum==2){
+    else if(setNumber==2){
         radius=radiusArr[0];
         addScatteredMolecules(15,1);
     }
-    else if(setNum==3 || setNum==5 || setNum==8){
+    else if(setNumber==3 || setNumber==5){
         radius=radiusArr[0];
         addScatteredMolecules(5,1);
         radius=radiusArr[1];
         addScatteredMolecules(15,2);
     }
-    else if(setNum==9){
-        getRadius("Hydrogen-Peroxide","compounds");
+    else if(setNumber==4){
+        x=580;
+        y=height-70
+        xgap=10;
+        ygap=0;
+        radius=radiusArr[0];
+        addMolecules(4,1);
+        radius=radiusArr[1];
+        addScatteredMolecules(8,2);
+        radius=radiusArr[2];
+        addScatteredMolecules(8,3);
+        radius=radiusArr[3];
+        addScatteredMolecules(16,4);
+        world.gravity.y=0.3;
+    }
+    else if(setNumber==8){
+        radius=radiusArr[0];
+        addScatteredMolecules(10,1);
+        radius=radiusArr[1];
+        addScatteredMolecules(15,2);
+    }
+    else if(setNumber==9){
+        radius=radiusArr[0];
         addScatteredMolecules(12,1);
     }
     pause();
-
 }
 
 prevSpeed=0;
+angularSpeed=0;
+speed=0;
 
 function draw() {
-
-    console.log(world.gravity.y);
     
+    angularSpeed=0;
+    speed=0;
+    angularVelocity=0;
+
     background(70);
-    piston();
     var timescale=document.getElementById("speedValue").innerHTML;
     if(prevSpeed!=timescale){
         engine.timing.timeScale = timescale;
         prevSpeed = timescale;
     }
     drawinitialsetup();
-    setHeatLine();
     if(prevSpeed==0)
+        return;
+    if(bodies[0].isSleeping && setNumber!=1)
         return;
     Engine.update(engine);
 
-    if(totalSeconds<2){
+    if(totalSeconds<1 && setNumber!=4){
         for (var i = 0; i < bodies.length; i++) {
-            // if(bodyType[i]==1)
             randomnum = Math.floor((Math.random() * 4) + 1);
             if(randomnum==1)
-                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: 0.005, y: 0});
+                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: 0.009, y: 0});
             else if(randomnum==2)
-                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: 0, y: 0.005});
+                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: 0, y: 0.009});
             else if(randomnum==3)
-                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: -0.005, y: 0});
+                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: -0.009, y: 0});
             else if(randomnum==4)
-                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: 0, y: -0.005});
+                Matter.Body.applyForce( bodies[i], {x: bodies[i].position.x, y: bodies[i].position.y}, {x: 0, y: -0.009});
         }
     }
 
-    //heat slider value
-    val = document.getElementById("heatValue").innerHTML;
-    var intValtemp = currRoomTemp;
-
     for (var i = 0; i < bodies.length; i++) {
         for (var j = 0; j < bodies.length; j++) {
-            if(setNum==1){
+            if(setNumber==1){
                 if (i != j && (bodyType[i]==1 && bodyType[j]==2) && j<7) {
                     test = intersects(bodynumber[i], bodynumber[j]);
                     randomnum = Math.floor((Math.random() * 100) + 1);
@@ -419,6 +464,9 @@ function draw() {
                             bodies[j].radius = radiusArr[2];
                             bodies[j+7].radius = radiusArr[2];
 
+                            bodies[j].position.y=bodies[j].position.y-50;
+                            bodies[j+7].position.y=bodies[j+7].position.y-50;
+
                             bodyType.splice(i, 1);
                             bodies.splice(i, 1);
                             bodynumber.splice(i, 1);
@@ -430,7 +478,7 @@ function draw() {
                     }
                 }
             }
-            else if (setNum==2) {
+            else if (setNumber==2) {
                 if (i != j && (bodyType[i]==1 && bodyType[j]==1)) {
                     test = intersects(bodynumber[i], bodynumber[j]);
                     randomnum = Math.floor((Math.random() * 100) + 1);
@@ -452,7 +500,7 @@ function draw() {
                     }
                 }
             }
-            else if (setNum==3) {
+            else if (setNumber==3) {
                 if (i != j && (bodyType[i]==1 && bodyType[j]==2)) {
                     test = intersects(bodynumber[i], bodynumber[j]);
                     randomnum = Math.floor((Math.random() * 100) + 1);
@@ -464,8 +512,8 @@ function draw() {
                             bodyType[i] = 3;
                             bodyType[j] = 3;
                             radius=radiusArr[3];
-                            addWater(j);
-                            addWater(j);
+                            addWater(j,4);
+                            addWater(j,4);
                             removeMolecule(2);
                             removeMolecule(2);
 
@@ -480,7 +528,7 @@ function draw() {
                     }
                 }
             }
-            else if (setNum==5) {
+            else if (setNumber==5) {
                 if (i != j && (bodyType[i]==1 && bodyType[j]==2)) {
                     test = intersects(bodynumber[i], bodynumber[j]);
                     randomnum = Math.floor((Math.random() * 100) + 1);
@@ -492,7 +540,7 @@ function draw() {
                             bodyType[i] = 3;
                             bodyType[j] = 4;
                             radius=radiusArr[3];
-                            addWater(j);
+                            addWater(j,4);
                             removeMolecule(2);
 
                             bodies[i].radius = radiusArr[2];
@@ -506,30 +554,71 @@ function draw() {
                     }
                 }
             }
+            else if (setNumber==8) {
+                if (i != j && (bodyType[i]==1 && bodyType[j]==2)) {
+                    test = intersects(bodynumber[i], bodynumber[j]);
+                    randomnum = Math.floor((Math.random() * 100) + 1);
+                    if (test == true) //that means collision occured
+                    {
+                        if (randomnum > 75) //randommnum is probability of conversion
+                        {
+                            //Change one to Hydrogen and other to Iodine 
+                            bodyType[i] = 3;
+                            bodyType[j] = 3;
+
+                            bodies[i].radius = radiusArr[2];
+                            bodies[j].radius = radiusArr[2];
+
+                            totalMolecules--;
+                            totalMolecules1--;
+                            totalMolecules2+=2;
+                        }
+                    }
+                }
+            }
+            else if (setNumber==9) {
+                if (i != j && (bodyType[i]==1 && bodyType[j]==1)) {
+                    test = intersects(bodynumber[i], bodynumber[j]);
+                    randomnum = Math.floor((Math.random() * 100) + 1);
+                    if (test == true) //that means collision occured
+                    {
+                        if (randomnum > 75) //randommnum is probability of conversion
+                        {
+                                //Change one to Water and other to Oxygen 
+                                bodyType[i] = 2;
+                                bodyType[j] = 3;
+                                //create a new Water Molecule
+                                addWater(j,3);
+                                //Increment the count of molecules
+                                totalMolecules-=2;
+                                totalMolecules1++;
+                                totalMolecules2+=2;
+                        }
+                    }
+                }
+            }
         }
     }
 
-    // applyforceID(0.05,1);
-    
-    // function applyforceID(mag, ID) {
-    //     for (var i = 0; i < bodies.length; i++) {
-    //         for (var j = 0; j < bodies.length; j++) {
-    //             if(bodyType[i]==ID && bodyType[j]==ID){
-    //                 var pvector = createVector((bodynumber[i].position.x), (bodynumber[i].position.y));
-    //                 var p2vector = createVector((bodynumber[j].position.x), (bodynumber[j].position.y));
-    //                 var distforce = dist(bodynumber[i].position.x, bodynumber[i].position.y, bodynumber[j].position.x, bodynumber[j].position.y);
-    //                 var diffvector = p5.Vector.sub(pvector, p2vector);
-    //                 diffvector.normalize();
-    //                 diffvector.mult(mag);
-    //                 //line(diffvector);
-    //                 if (distforce > 40) {
-    //                     Matter.Body.applyForce(bodynumber[j], p2vector, diffvector);
-    //                     console.log("applied");
-    //                 }
-    //             }
-    //         }   
-    //     }
-    // }
+    if(setNumber==4){
+        applyforce(0.000002);
+    }
+
+    function applyforce(mag) {
+        for (var i = 0; i < bodies.length; i++) {
+            for (var j = 0; j < bodies.length; j++) {
+                var pvector = createVector((bodynumber[i].position.x), (bodynumber[i].position.y));
+                var p2vector = createVector((bodynumber[j].position.x), (bodynumber[j].position.y));
+                var distforce = dist(bodynumber[i].position.x, bodynumber[i].position.y, bodynumber[j].position.x, bodynumber[j].position.y);
+                var diffvector = p5.Vector.sub(pvector, p2vector);
+                diffvector.normalize();
+                diffvector.mult(mag);
+                if (distforce > 40) {
+                    Matter.Body.applyForce(bodynumber[j], p2vector, diffvector);
+                }
+            }
+        }
+    }
 
     //check circle collision
     function intersects(first, other) {
@@ -610,7 +699,7 @@ function drawcircle() {
 
         var circle = bodies[i];
         var pos = circle.position;
-        var r = 20;
+        var r = circle.radius;
         var angle = circle.angle;
         push();
         translate(pos.x, pos.y);
@@ -666,9 +755,13 @@ function setrowcolumn(number){
         row=7;
         column=2;
     }
-    if(number==7){
+    else if(number==7){
         row=7;
         column=1;
+    }
+    else if(number==4){
+        row=4;
+        column=1;   
     }
 }
 
@@ -680,20 +773,31 @@ function makeCircle(x, y) {
         mass: 0,
         collideFlag: -1,
         frictionAir: 0,
-        //density: 0.001,
-        inertia: Infinity,
         frictionStatic: 0
-        //mass: 1
     }
-    return Bodies.circle(x, y, radius, params);
+    var params1 = {
+        restitution: 1.0,
+        friction: 0,
+        offset: 0,
+        mass: 0,
+        collideFlag: -1,
+        frictionAir: 0,
+        //inertia: Infinity,
+        frictionStatic: 0
+    }
+    if(setNumber==4)
+        return Bodies.circle(x, y, radius, params1);
+    else
+        return Bodies.circle(x, y, radius, params);
+    
 }
 
-function addWater(j){
+function addWater(j,type){
     stack[stackCounter]=Composites.stack(bodies[j].position.x, bodies[j].position.y, 1, 1, 0, 0, makeCircle);
     World.add(world, stack[stackCounter]);
     bodies[bodies.length] = stack[stackCounter].bodies[0];
     bodynumber[bodynumber.length] = stack[stackCounter].bodies[0];
-    bodyType[bodyType.length] = 4;
+    bodyType[bodyType.length] = type;
     stackCounter++;
 }
 function removeMolecule(type){
@@ -732,13 +836,7 @@ function addMolecules(number,ID){
     }
 
     for (var i = 0; i < bodies.length; i++) {
-        Matter.Body.setInertia(bodies[i], Infinity);
         bodynumber[i] = bodies[i];
-        // if (number>10) {
-        //     bodynumber[i].isSleeping = true;
-        // }
-        bodyPositionX[i] = bodies[i].position.x;
-        bodyPositionY[i] = bodies[i].position.y;
         if(bodyType[i]==undefined)
             bodyType[i] = ID;
     }
@@ -770,13 +868,7 @@ function addScatteredMolecules(molNum,ID){
 //start simulation
 function start(){
     for (var i = 0; i < bodynumber.length ; i++){
-        if(setNum==1){
-            if(bodyType[i]==1){
-                bodynumber[i].isSleeping = false;
-            }    
-        }
-        else
-            bodynumber[i].isSleeping = false;
+        bodynumber[i].isSleeping = false;
     }
     timerVar = setInterval(countTimer, 1000);
 }
@@ -790,6 +882,13 @@ function pause(){
 
 //Timer
 function countTimer() {
+    for (var i = 0; i < bodies.length; i++) {
+        angularSpeed+=bodies[i].angularSpeed;
+        speed+=bodies[i].speed;
+    }
+    console.log("AS ("+totalSeconds+") :"+angularSpeed);
+    console.log("S: ("+totalSeconds+") :"+speed);
+
     ++totalSeconds;
     var hour = Math.floor(totalSeconds /3600);
     var minute = Math.floor((totalSeconds - hour*3600)/60);

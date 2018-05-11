@@ -1,0 +1,36 @@
+.image{
+	padding: 2% 5% 0% 5%;
+	height: 18vh;
+}
+.main{
+	width: 100%;
+	height: 70vh;
+	padding: 2% 2% 2% 2%;
+
+}
+.canvas{
+	width: 30%;
+	float: left;
+	padding: 2% 2% 2% 2%;
+}
+.sims{
+	width: 30%;
+	float: left;
+	padding: 2% 2% 2% 2%;
+}
+.units{
+	width: 30%;
+	float: left;
+	padding: 2% 2% 2% 2%;
+}
+.vl {
+    border-left: 6px solid green;
+    height: 100%;
+    float: left;
+}
+.btn-unit{
+	width: 100%;
+}
+.row{
+	padding-bottom: 20px;
+}

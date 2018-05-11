@@ -4194,7 +4194,8 @@ compounds : [
    "freezingPointCelsius": 0,
    "unit": "3 8",
    "fakeScale": 1,
-   "mass": 36.5
+   "mass": 36.5,
+   "radius": 25
  },
  {
    "name": "Hydroxide",
@@ -4234,7 +4235,7 @@ compounds : [
    "unit": "3 4",
    "fakeScale": 1,
    "mass": 44,
-   "radius": 27
+   "radius": 35
  },
  {
    "name": "Ammonia",
@@ -4678,7 +4679,8 @@ compounds : [
    "freezingPointCelsius": 0,
    "unit": "8",
    "fakeScale": 1,
-   "mass": 35.5
+   "mass": 35.5,
+   "radius": 27
  },
  {
    "name": "Chlorine",
@@ -4796,7 +4798,8 @@ compounds : [
    "freezingPointCelsius": 1084.62,
    "unit": "3",
    "fakeScale": 1,
-   "mass": 63.55
+   "mass": 63.55,
+   "radius": 19
  },
  {
    "name": "Copper-II",
@@ -4809,7 +4812,8 @@ compounds : [
    "freezingPointCelsius": null,
    "unit": "",
    "fakeScale": 1,
-   "mass": null
+   "mass": null,
+   "radius": 20
  },
  {
    "name": "Copper-II-Nitrate",
@@ -4888,7 +4892,7 @@ compounds : [
    "unit": "3",
    "fakeScale": 1,
    "mass": 28,
-   "radius": 28
+   "radius": 37
  },
  {
    "name": "Fluoride",
@@ -5057,7 +5061,8 @@ compounds : [
    "freezingPointCelsius": -259.14,
    "unit": "3",
    "fakeScale": 1,
-   "mass": 2
+   "mass": 2,
+   "radius": 20
  },
  {
    "name": "Hydrogen-Atom",
@@ -5123,7 +5128,7 @@ compounds : [
    "unit": "3",
    "fakeScale": 1,
    "mass": 127.9,
-   "radius": 28
+   "radius": 34
  },
  {
    "name": "Hydrogen-Ion",
@@ -5162,7 +5167,8 @@ compounds : [
    "freezingPointCelsius": 113.7,
    "unit": "3",
    "fakeScale": 1,
-   "mass": 253.8
+   "mass": 253.8,
+   "radius": 40
  },
  {
    "name": "Iodine-Atom",
@@ -5540,7 +5546,8 @@ compounds : [
    "freezingPointCelsius": null,
    "unit": "",
    "fakeScale": 1,
-   "mass": null
+   "mass": null,
+   "radius": 34
  },
  {
    "name": "Nitric-Acid",
@@ -5632,7 +5639,7 @@ compounds : [
    "unit": "3 4",
    "fakeScale": 1,
    "mass": 32,
-   "radius": 10
+   "radius": 18
  },
  {
    "name": "Oxygen-Atom",
@@ -5947,7 +5954,8 @@ compounds : [
    "freezingPointCelsius": null,
    "unit": "",
    "fakeScale": 1,
-   "mass": null
+   "mass": null,
+   "radius": 22
  },
  {
    "name": "Silver-Nitrate",

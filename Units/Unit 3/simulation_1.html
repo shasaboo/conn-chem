@@ -14,108 +14,116 @@
     <title>Connected Chemistry - Scientific Observations</title>
   </head>
   <body>
-
-    <div class="container-fluid">
-      <div class="row toolbar">
-        <div class="column">
-          <a href="#" class="btn btn-success btn-lg">
-            <span class="fa fa-home"></span> 
-          </a>
-        </div>
-        <div class="column">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="sim">Simulation 1
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu col-xs-12 sim">
-              <li><a href="simulation_1.html">Sim1: Making scientific observations with a Model </a></li>
-            </ul>
-          </div>
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="selectset">Select Set
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu col-xs-12">
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(1)">Set 1</button></li>
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(2)">Set 2</button></li>
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(3)">Set 3</button></li>
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(4)">Set 4</button></li>
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(5)">Set 5</button></li>
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(8)">Set 8</button></li>
-              <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(9)">Set 9</button></li>
-            </ul>
-          </div>
-        </div>
-        <div class="column">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Substance
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu col-xs-12 dropdown-menu-substance">
-              <li>
-                <img id="molimg" src="../assets/Chlorine.png"><h5 id="molname" style="display:inline">Water</h5>
-                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel()"/>
-                <span class="badge badge-primary slider-val" id="moleculeval">2 </span>
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn()">
-                    <span class="fa fa-plus"></span>
-                   </button>
-                </span>
-              </li>
-              <hr id="hr1">
-              <li id="molSlider1">
-                <img id="molimg1" src="../../assets/Chlorine.png"><h5 id="molname1" style="display:inline">HydrogenPeroxide</h5>
-                <input id="ex5" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel1()"/>
-                <span class="badge badge-primary slider-val" id="moleculeval1">2 </span>
-                <span class="input-group-btn">
-                  <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn1(2)">
-                    <span class="fa fa-plus"></span>
-                   </button>
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="start()">
-              <span class="fa fa-play"></span>
-            </button>
-            <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="pause()">
-              <span class="fa fa-pause"></span>
-            </button>
-            <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="setup()">
-              <span class="fa fa-repeat"></span>
-            </button>
-          </div>
-        </div>
-        <div class="column">
-          <div> 
-            <button class="btn btn-primary btn-hide" type="button">Hide Water Molecules</button>
-          </div>
-          <div align="center">
-            <span class="badge badge-primary timerdiv" id="timer">0 : 00 : 00 </span>
-          </div>
-        </div>
-        <div class="column column-slider">
-          <div class="personalslider">
-            <span class="badge badge-primary slider-name">Speed </span>
-            <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="1" data-toggle-slider-selection="before" data-slider-tooltip="hide" data-value="1" value="1" onchange="setSpeedSliderVal()"/>
-            <span class="badge badge-primary slider-val" id="speedValue">1 </span>
-          </div>
-          <div class="personalslider">
-            <span class="badge badge-primary slider-name">Volume</span>
-            <input id="ex3" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="500" data-slider-step="1" data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide" data-value="0" value="0" onchange="setVolumeSliderVal()"/>
-            <span class="badge badge-primary slider-val" id="volumeValue">0 </span>
-          </div>
-          <div class="personalslider">
-            <span class="badge badge-primary slider-name" id="heat">Heat  </span>
-            <input id="ex4" data-slider-id='ex1Slider' type="text" data-slider-min="-5" data-slider-max="5" data-slider-step="1" data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide" data-value="5" value="5" onchange="setHeatSliderVal()"/>
-            <span class="badge badge-primary slider-val" id="heatValue" >0</span>
-          </div>
-        </div>
-        </div>
+    <!-- <div id="error-message">Please enlarge your window for the site to work</div> -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Please enlarge your window for the site to work and refresh</p>
       </div>
-      <div class="row drawing-area">
-        <div class="column column-data">
-            <canvas id="lineChart" height="270px" width="350px"></canvas>
-            <!-- <span class="badge badge-primary label-temp">Temperature C</span>
-            <span class="badge badge-primary" id="tempval">25</span> -->
+    </div>
+    <div id="main-area">
+      <div class="container-fluid">
+        <div class="row toolbar">
+          <div class="column">
+            <a href="../../index.html" class="btn btn-success btn-lg">
+              <span class="fa fa-home"></span> 
+            </a>
+          </div>
+          <div class="column">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="sim">Simulation 1
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu col-xs-12 sim">
+                <li><a href="simulation_1.html">Sim1: Making scientific observations with a Model </a></li>
+              </ul>
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="selectset">Select Set
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu col-xs-12">
+                <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(1)">Set 1</button></li>
+                <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(2)">Set 2</button></li>
+                <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(3)">Set 3</button></li>
+                <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(4)">Set 4</button></li>
+                <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(5)">Set 5</button></li>
+                <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(8)">Set 8</button></li>
+                <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(9)">Set 9</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Substance
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu col-xs-12 dropdown-menu-substance">
+                <li>
+                  <img id="molimg" src="../assets/Chlorine.png"><h5 id="molname" style="display:inline">Water</h5>
+                  <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel()"/>
+                  <span class="badge badge-primary slider-val" id="moleculeval">2 </span>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn()">
+                      <span class="fa fa-plus"></span>
+                     </button>
+                  </span>
+                </li>
+                <hr id="hr1">
+                <li id="molSlider1">
+                  <img id="molimg1" src="../../assets/Chlorine.png"><h5 id="molname1" style="display:inline">HydrogenPeroxide</h5>
+                  <input id="ex5" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="2" data-slider-value="2" data-slider-selection="before" data-slider-tooltip="hide" data-value="2" value="2" onchange="setAddMoleculeLabel1()"/>
+                  <span class="badge badge-primary slider-val" id="moleculeval1">2 </span>
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-number" onclick="addMoleculesBtn1(2)">
+                      <span class="fa fa-plus"></span>
+                     </button>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="start()">
+                <span class="fa fa-play"></span>
+              </button>
+              <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="pause()">
+                <span class="fa fa-pause"></span>
+              </button>
+              <button type="button" class="btn btn-primary btn-play-pause-reset" onclick="setup()">
+                <span class="fa fa-repeat"></span>
+              </button>
+            </div>
+          </div>
+          <div class="column">
+            <div> 
+              <button class="btn btn-primary btn-hide" type="button">Hide Water Molecules</button>
+            </div>
+            <div align="center">
+              <span class="badge badge-primary timerdiv" id="timer">0 : 00 : 00 </span>
+            </div>
+          </div>
+          <div class="column column-slider">
+            <div class="personalslider">
+              <span class="badge badge-primary slider-name">Speed </span>
+              <input id="ex2" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="1" data-slider-step="0.01" data-slider-value="1" data-toggle-slider-selection="before" data-slider-tooltip="hide" data-value="1" value="1" onchange="setSpeedSliderVal()"/>
+              <span class="badge badge-primary slider-val" id="speedValue">1 </span>
+            </div>
+            <div class="personalslider">
+              <span class="badge badge-primary slider-name">Volume</span>
+              <input id="ex3" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="500" data-slider-step="1" data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide" data-value="0" value="0" onchange="setVolumeSliderVal()"/>
+              <span class="badge badge-primary slider-val" id="volumeValue">0 </span>
+            </div>
+            <div class="personalslider">
+              <span class="badge badge-primary slider-name" id="heat">Heat  </span>
+              <input id="ex4" data-slider-id='ex1Slider' type="text" data-slider-min="-5" data-slider-max="5" data-slider-step="1" data-slider-value="0" data-slider-selection="before" data-slider-tooltip="hide" data-value="5" value="5" onchange="setHeatSliderVal()"/>
+              <span class="badge badge-primary slider-val" id="heatValue" >0</span>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="row drawing-area">
+          <div class="column column-data">
+              <canvas id="lineChart" height="270px" width="350px"></canvas>
+              <!-- <span class="badge badge-primary label-temp">Temperature C</span>
+              <span class="badge badge-primary" id="tempval">25</span> -->
+          </div>
         </div>
       </div>
     </div>

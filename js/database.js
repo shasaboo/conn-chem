@@ -4261,7 +4261,7 @@ compounds : [
    "freezingPointCelsius": -0.43,
    "unit": "1 3",
    "fakeScale": 1,
-   "mass": null,
+   "mass": 34.0147,
    "radius": 28
  },
  {
@@ -5506,7 +5506,7 @@ compounds : [
    "freezingPointCelsius": -182.5,
    "unit": "3",
    "fakeScale": 1,
-   "mass": null,
+   "mass": 16.04,
    "radius": 25
  },
  {

@@ -14,17 +14,22 @@
     <title>Connected Chemistry - Physical Changes</title>
   </head>
   <body>
-
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Please enlarge your window for the site to work and refresh</p>
+      </div>
+    </div>
     <div class="container-fluid">
       <div class="row toolbar">
         <div class="column">
-          <a href="#" class="btn btn-success btn-lg">
+          <a href="../../index.html" class="btn btn-success btn-lg">
             <span class="fa fa-home"></span> 
           </a>
         </div>
         <div class="column">
           <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Simulations
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Simulation 3
             <span class="caret"></span></button>
             <ul class="dropdown-menu col-xs-12 sim">
               <li><a href="simulation_1.html">Sim1:Making scientific observations with a Model </a></li>
@@ -35,7 +40,7 @@
             </ul>
           </div>
           <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Set
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="selectset">Select Set
             <span class="caret"></span></button>
             <ul class="dropdown-menu col-xs-12">
               <li class="select-set"><button type="button" class="btn btn-primary btn-set" onclick="setMolecule(1)">Set 1</button></li>

@@ -1,3 +1,20 @@
+//Check for correct window size
+var modal = document.getElementById('myModal');
+window.onload = function() {
+    if(window.innerWidth<=1278 || window.innerHeight<=700)
+        modal.style.display = "block";
+}
+window.onresize = checksize;
+function checksize() {
+    if(window.innerWidth<=1278 || window.innerHeight<=700)
+        modal.style.display = "block";
+    else{
+        modal.style.display = "none";
+        location.reload();
+    }
+}
+
+
 var Engine = Matter.Engine;
 var World = Matter.World;
 var Bodies = Matter.Bodies;
@@ -68,6 +85,7 @@ var mass2=72.15;
 var img;
 var setNumber=1;
 var radiusArr = [];
+var massArr = [];
 
 function getRadius(name,type){
 
@@ -96,6 +114,33 @@ function getRadius(name,type){
     }
 }
 
+function getMass(name,type){
+
+    switch(type){
+
+        case "compounds":
+        for(i = 0 ; i < compounds.length ; i++) //array to check each record
+        {
+            if(compounds[i].name == name)
+            {
+                return compounds[i].mass;
+                
+            }
+        }
+        break;
+        case "elements":
+        for(i = 0 ; i < elements.length ; i++) //array to check each record
+        {
+            if(elements[i].name == name)
+            {
+                return elements[i].mass;
+                
+            }
+       }
+       break;
+    }
+}
+
 function setMolecule(ID) {
 
     if(ID==1){
@@ -107,6 +152,9 @@ function setMolecule(ID) {
         radiusArr[0] = getRadius("Sodium","compounds");
         radiusArr[1] = getRadius("Chlorine","compounds");
         radiusArr[2] = getRadius("Sodium-Chloride","compounds");
+        massArr[0] = getMass("Chlorine","compounds");
+        massArr[1] = getMass("Sodium","compounds");
+        massArr[2] = getMass("Sodium-Chloride","compounds");
         fixedDistance=radiusArr[0]+radiusArr[1];
         document.getElementById("molimg").src="../../assets/Chlorine.png";
         document.getElementById("molimg1").src="../../assets/Sodium.png";
@@ -130,6 +178,9 @@ function setMolecule(ID) {
         radiusArr[0] = getRadius("Hydrogen-Iodide","compounds");
         radiusArr[1] = getRadius("Hydrogen","compounds");
         radiusArr[2] = getRadius("Iodine","compounds");
+        massArr[0] = getMass("Hydrogen-Iodide","compounds");
+        massArr[1] = getMass("Hydrogen","compounds");
+        massArr[2] = getMass("Iodine","compounds");
         fixedDistance=radiusArr[0]+radiusArr[0];
         document.getElementById("molimg").src="../../assets/Hydrogen-Iodide.png";
         document.getElementById("molname").innerHTML="Hydrogen-Iodide";
@@ -153,6 +204,10 @@ function setMolecule(ID) {
         radiusArr[1] = getRadius("Oxygen","compounds");
         radiusArr[2] = getRadius("Carbon-Dioxide","compounds");
         radiusArr[3] = getRadius("Water","compounds");
+        massArr[0] = getMass("Ethene","compounds");
+        massArr[1] = getMass("Oxygen","compounds");
+        massArr[2] = getMass("Carbon-Dioxide","compounds");
+        massArr[3] = getMass("Water","compounds");
         fixedDistance=radiusArr[0]+radiusArr[1];
         document.getElementById("molimg").src="../../assets/Ethene.png";
         document.getElementById("molimg1").src="../../assets/Oxygen.png";
@@ -191,6 +246,10 @@ function setMolecule(ID) {
         radiusArr[1] = getRadius("Oxygen","compounds");
         radiusArr[2] = getRadius("Carbon-Dioxide","compounds");
         radiusArr[3] = getRadius("Water","compounds");
+        massArr[0] = getMass("Methane","compounds");
+        massArr[1] = getMass("Oxygen","compounds");
+        massArr[2] = getMass("Carbon-Dioxide","compounds");
+        massArr[3] = getMass("Water","compounds");
         fixedDistance=radiusArr[0]+radiusArr[1];
         document.getElementById("molimg").src="../../assets/Methane.png";
         document.getElementById("molimg1").src="../../assets/Oxygen.png";
@@ -215,6 +274,9 @@ function setMolecule(ID) {
         radiusArr[0] = getRadius("Chlorine","compounds");
         radiusArr[1] = getRadius("Hydrogen","compounds");
         radiusArr[2] = getRadius("Hydrochloric-Acid","compounds");
+        massArr[0] = getMass("Chlorine","compounds");
+        massArr[1] = getMass("Hydrogen","compounds");
+        massArr[2] = getMass("Hydrochloric-Acid","compounds");
         fixedDistance=radiusArr[0]+radiusArr[1];
         document.getElementById("molimg").src="../../assets/Chlorine.png";
         document.getElementById("molimg1").src="../../assets/Hydrogen.png";
@@ -234,6 +296,9 @@ function setMolecule(ID) {
         img1 = loadImage("../../assets/Water.png");
         img2 = loadImage("../../assets/Oxygen.png");
         radiusArr[0] = getRadius("Hydrogen-Peroxide","compounds");
+        massArr[0] = getMass("Hydrogen-Peroxide","compounds");
+        massArr[1] = getMass("Water","compounds");
+        massArr[2] = getMass("Oxygen","compounds");
         fixedDistance=radiusArr[0]+radiusArr[0];
         document.getElementById("molimg").src="../../assets/HydrogenPeroxide.png";
         document.getElementById("molname").innerHTML="Hydrogen Peroxide";
@@ -259,6 +324,9 @@ function preload(){
     radiusArr[0] = getRadius("Sodium","compounds");
     radiusArr[1] = getRadius("Chlorine","compounds");
     radiusArr[2] = getRadius("Sodium-Chloride","compounds");
+    massArr[0] = getMass("Chlorine","compounds");
+    massArr[1] = getMass("Sodium","compounds");
+    massArr[2] = getMass("Sodium-Chloride","compounds");
     fixedDistance=radiusArr[0]+radiusArr[1];
     document.getElementById("molimg").src="../../assets/Chlorine.png";
     document.getElementById("molimg1").src="../../assets/Sodium.png";
@@ -271,7 +339,6 @@ function preload(){
 }
 
 function setup() {
-
     //imageMode(CENTER);
     frameRate(15);
 
@@ -281,7 +348,7 @@ function setup() {
     //Create and position the canvas
     canvasHeight = window.innerHeight*0.85;
     canvasWidth = window.innerWidth*0.7;
-    
+
     cnv = createCanvas(canvasWidth, canvasHeight);
     cnv.position(0.3*window.innerWidth, 0.15*window.innerHeight);
 
@@ -375,7 +442,7 @@ function setup() {
     }
     else if(setNumber==2){
         radius=radiusArr[0];
-        addScatteredMolecules(15,1);
+        addScatteredMolecules(4,1);
     }
     else if(setNumber==3 || setNumber==5){
         radius=radiusArr[0];
@@ -416,7 +483,7 @@ angularSpeed=0;
 speed=0;
 
 function draw() {
-    
+
     angularSpeed=0;
     speed=0;
     angularVelocity=0;
@@ -672,6 +739,7 @@ function setHeatLine(){
     line(25, height - 0.04*height, width-25, height - 0.04*height);
 }
 
+//Not needed in Unit 3
 function piston(){
 
      var params = {
@@ -773,7 +841,8 @@ function makeCircle(x, y) {
         mass: 0,
         collideFlag: -1,
         frictionAir: 0,
-        frictionStatic: 0
+        frictionStatic: 0,
+        inertia: Infinity
     }
     var params1 = {
         restitution: 1.0,
@@ -788,7 +857,8 @@ function makeCircle(x, y) {
     if(setNumber==4)
         return Bodies.circle(x, y, radius, params1);
     else
-        return Bodies.circle(x, y, radius, params);
+        //return Bodies.circle(x, y, radius, params);
+        return Bodies.polygon(x, y, 50, radius, params);
     
 }
 
@@ -882,12 +952,15 @@ function pause(){
 
 //Timer
 function countTimer() {
+    angularSpeed=0;
+    speed=0;
     for (var i = 0; i < bodies.length; i++) {
         angularSpeed+=bodies[i].angularSpeed;
         speed+=bodies[i].speed;
+        //console.log("Body: ("+i+") :"+bodies[i].speed);
     }
-    console.log("AS ("+totalSeconds+") :"+angularSpeed);
-    console.log("S: ("+totalSeconds+") :"+speed);
+    // console.log("AS ("+totalSeconds+") :"+angularSpeed);
+    // console.log("S: ("+totalSeconds+") :"+speed);
 
     ++totalSeconds;
     var hour = Math.floor(totalSeconds /3600);
@@ -900,17 +973,21 @@ function countTimer() {
 
     //Setting the graph
     addLabel(timervalue);
-    addData(0, totalMolecules);
+    m=totalMolecules*massArr[0];
+    m1=totalMolecules1*massArr[1];
+    m2=totalMolecules2*massArr[2];
+    m3=totalMolecules3*massArr[3];
+    addData(0, m);
     if(window.myLine.data.datasets.length==2){
-        addData(1, totalMolecules1);
+        addData(1, m1);
     }
     else if(window.myLine.data.datasets.length==3){
-        addData(1, totalMolecules1);
-        addData(2, totalMolecules2);
+        addData(1, m1);
+        addData(2, m2);
     }
     else if(window.myLine.data.datasets.length==4){
-        addData(1, totalMolecules1);
-        addData(2, totalMolecules2);
-        addData(3, totalMolecules3);
+        addData(1, m1);
+        addData(2, m2);
+        addData(3, m3);
     }    
 }
